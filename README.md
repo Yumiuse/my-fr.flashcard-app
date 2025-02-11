@@ -78,15 +78,15 @@ my-fr.flashcard-app/
    ```bash
    git clone https://github.com/Yumiuse/my-fr.flashcard-app.git
    cd my-fr.flashcard-app
-2. Install Dependencies
+2. **Install Dependencies**
    
    pip install -r requirements.txt
 
-3. Run the Backend and Frontend
+3. **Run the Backend and Frontend**
 
       uvicorn backend/level_checker.py --reload
 
-   Launch the Streamlit app
+   **Launch the Streamlit app**
    
       streamlit run frontend/app.py
 
