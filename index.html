@@ -16,13 +16,63 @@
     <button onclick="switchLanguage('ja')">日本語</button>
   </div>
 
-  <!-- 英語版コンテンツ -->
-  <div id="en" class="language-content">
-    <h1>Flashcard-Based French Learning App</h1>
-    <h2>Project Overview</h2>
-    <p>This app is designed for French language learners and supports efficient vocabulary acquisition by integrating word difficulty classification with an interactive flashcard interface...</p>
-    <!-- さらに詳細な英語のコンテンツ -->
-  </div>
+  <!-- English Content -->
+<div id="en" class="language-content">
+  <h1>Flashcard-Based French Learning App</h1>
+  <h2>Project Overview</h2>
+  <p>
+    This app is designed for French language learners by integrating real-time word difficulty classification with an interactive flashcard interface to support efficient vocabulary acquisition. Users receive immediate feedback on word difficulty and translation information, and optimize their review timing through feedback-driven spaced repetition.
+  </p>
+  <h2>Main Features</h2>
+  <ul>
+    <li><strong>Word Difficulty Classification:</strong> Utilizes FastAPI and scikit-learn to classify input words into "Beginner," "Intermediate," and "Advanced" levels, providing instant feedback.</li>
+    <li><strong>Flashcard UI:</strong> Features a simple interface built with Streamlit that displays words as flashcards. Clicking a card fetches translation and supplementary details via the ChatGPT API.</li>
+    <li><strong>User Feedback and Review Management:</strong> Records feedback such as "Mastered," "Partially Remembered," and "Not Remembered" into a CSV file, which is then used to dynamically calculate the next review interval.</li>
+  </ul>
+  <h2>System Architecture</h2>
+  <ol>
+    <li>
+      <strong>Word Classification:</strong>
+      <ul>
+        <li>Data preprocessing using Pandas and scikit-learn</li>
+        <li>Classification via DecisionTreeClassifier</li>
+        <li>Real-time prediction using a FastAPI endpoint at <code>/predict/</code></li>
+      </ul>
+    </li>
+    <li>
+      <strong>Flashcard Display and Translation:</strong>
+      <ul>
+        <li>Flashcards are rendered via a Streamlit-based UI</li>
+        <li>Translation information is retrieved via the ChatGPT API when a flashcard is clicked</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Spaced Repetition Implementation:</strong>
+      <ul>
+        <li>Calculates review intervals based on user feedback</li>
+        <li>Future plans include utilizing machine learning models to predict personalized review schedules</li>
+      </ul>
+    </li>
+  </ol>
+  <h2>Future Prospects</h2>
+  <ul>
+    <li><strong>Cloud Deployment:</strong> Plans to deploy on platforms such as Heroku, AWS, or GCP for real-time data collection and performance evaluation.</li>
+    <li><strong>Model Enhancement:</strong> Intends to analyze user forgetting patterns and explore regression or time-series models for predicting optimal review intervals.</li>
+    <li><strong>UI/UX Improvements:</strong> Will continuously refine the interface based on user feedback to enhance usability.</li>
+  </ul>
+  <h2>Links</h2>
+  <ul>
+    <li><strong>GitHub Repository:</strong> <a href="https://github.com/Yumiuse/my-fr.flashcard-app" target="_blank">https://github.com/Yumiuse/my-fr.flashcard-app</a></li>
+    <li><strong>Demo Site:</strong> <a href="https://Yumiuse.github.io/my-fr.flashcard-app" target="_blank">https://Yumiuse.github.io/my-fr.flashcard-app</a></li>
+  </ul>
+  <h2>Additional Tips</h2>
+  <ul>
+    <li><strong>Editing Files:</strong> In your GitHub repository, click "Add file" → "Create new file", name the file <code>index.md</code>, paste the above content, and commit the changes.</li>
+    <li><strong>Design and Theme Adjustments:</strong> If you use Jekyll for GitHub Pages, create a <code>_config.yml</code> file in the repository root to set a theme (for example, <code>minima</code>) and configure your site title for a polished design.</li>
+    <li><strong>Plagiarism Prevention:</strong> This template is provided as a reference. Adjust variable names, comments, and phrasing in your own words to ensure originality.</li>
+  </ul>
+</div>
+
 
 <!-- 日本語版コンテンツ -->
 <div id="ja" class="language-content">
