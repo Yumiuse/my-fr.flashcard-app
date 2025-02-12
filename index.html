@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multi-Language Portfolio</title>
+  <style>
+    /* 各言語ブロックの基本スタイル */
+    .language-content {
+      display: none;  /* 初期状態では非表示 */
+    }
+    .language-content.active {
+      display: block; /* active クラスが付いたものだけ表示 */
+    }
+    /* 言語切替ボタンのスタイル */
+    .language-switcher {
+      margin-bottom: 20px;
+    }
+    .language-switcher button {
+      padding: 8px 12px;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 言語切替ボタン -->
+  <div class="language-switcher">
+    <button onclick="switchLanguage('en')">English</button>
+    <button onclick="switchLanguage('ja')">日本語</button>
+  </div>
+
+  <!-- 英語版コンテンツ -->
+  <div id="en" class="language-content">
+    <h1>Flashcard-Based French Learning App</h1>
+    <p>This is the English version of the portfolio page. Here you can read about the features, implementation details, and future enhancements of the project.</p>
+    <!-- ここに英語の詳細コンテンツを追加 -->
+  </div>
+
+  <!-- 日本語版コンテンツ -->
+  <div id="ja" class="language-content">
+    <h1>フラッシュカード式フランス語学習アプリ</h1>
+    <p>こちらは日本語版のポートフォリオページです。プロジェクトの機能、実装の詳細、今後の改善点について記載しています。</p>
+    <!-- ここに日本語の詳細コンテンツを追加 -->
+  </div>
+
+  <script>
+    // 言語切替関数
+    function switchLanguage(lang) {
+      // すべての言語コンテンツを非表示にする
+      var contents = document.querySelectorAll('.language-content');
+      contents.forEach(function(content) {
+        content.classList.remove('active');
+      });
+      // 指定された言語のコンテンツを表示する
+      var selectedContent = document.getElementById(lang);
+      if (selectedContent) {
+        selectedContent.classList.add('active');
+      }
+    }
+    // ページ読み込み時の初期言語設定（例：英語を初期表示）
+    window.onload = function() {
+      switchLanguage('en');
+    };
+  </script>
+</body>
+</html>
