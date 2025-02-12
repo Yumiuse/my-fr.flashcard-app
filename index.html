@@ -41,68 +41,54 @@
   <div id="ja" class="language-content">
     <h1>フラッシュカード式フランス語学習アプリ</h1>
     <p>こちらは日本語版のポートフォリオページです。プロジェクトの機能、実装の詳細、今後の改善点について記載しています。</p>
-    <# フラッシュカード式フランス語学習アプリ
+    <!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flashcard-Based French Learning App</title>
+  <style>
+    .language-content { display: none; }
+    .language-content.active { display: block; }
+    /* その他のスタイル */
+  </style>
+</head>
+<body>
+  <div class="language-switcher">
+    <button onclick="switchLanguage('en')">English</button>
+    <button onclick="switchLanguage('ja')">日本語</button>
+  </div>
 
-## プロジェクト概要
+  <!-- 英語版コンテンツ -->
+  <div id="en" class="language-content">
+    <h1>Flashcard-Based French Learning App</h1>
+    <h2>Project Overview</h2>
+    <p>This app is designed for French language learners and supports efficient vocabulary acquisition by integrating word difficulty classification with an interactive flashcard interface...</p>
+    <!-- さらに詳細な英語のコンテンツ -->
+  </div>
 
-このアプリは、フランス語学習者向けに設計され、単語の難易度判定とインタラクティブなフラッシュカード機能を統合することで、効率的な語彙学習をサポートします。ユーザーはリアルタイムの難易度判定結果と翻訳情報を取得し、フィードバックに基づいたスペースドレペティション（間隔反復）で復習タイミングを最適化できます。
+  <!-- 日本語版コンテンツ -->
+  <div id="ja" class="language-content">
+    <h1>フラッシュカード式フランス語学習アプリ</h1>
+    <h2>プロジェクト概要</h2>
+    <p>このアプリは、フランス語学習者向けに設計され、単語の難易度判定とインタラクティブなフラッシュカード機能を統合することで、効率的な語彙学習をサポートします...</p>
+    <!-- さらに詳細な日本語のコンテンツ -->
+  </div>
 
-## 主な機能
+  <script>
+    function switchLanguage(lang) {
+      document.querySelectorAll('.language-content').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      document.getElementById(lang).classList.add('active');
+    }
+    window.onload = function() {
+      switchLanguage('en');  // 初期表示を英語に
+    };
+  </script>
+</body>
+</html>
 
-- **単語難易度判定**  
-  FastAPI と scikit-learn を使用し、入力された単語を「初級」「中級」「上級」に分類。即時にフィードバックを提供します。
-
-- **フラッシュカードUI**  
-  Streamlit によるシンプルなインターフェースで、カード形式にて単語を表示。クリックで ChatGPT API 経由の翻訳・補足情報を表示します。
-
-- **ユーザーフィードバックと復習管理**  
-  「覚えた」「うる覚え」「覚えていない」といったフィードバックを記録し、CSVに保存。これを元に、次回の復習タイミングを動的に計算します。
-
-## システムの仕組み
-
-1. **単語判定**  
-   - Pandas と scikit-learn によるデータ前処理
-   - DecisionTreeClassifier による単語の難易度分類
-   - FastAPI エンドポイント `/predict/` によるリアルタイム判定
-
-2. **フラッシュカードの表示と翻訳**  
-   - Streamlit を利用したUIでカードを表示
-   - ChatGPT API を利用して、クリック時に翻訳情報を取得
-
-3. **スペースドレペティションの活用**  
-   - ユーザーフィードバックに基づき、復習タイミングを計算
-   - 今後、機械学習モデルを用いて個別最適な復習スケジュールを予測する計画
-
-## 今後の展望
-
-- **クラウドへの展開**  
-  Heroku、AWS、GCP などでのデプロイを予定し、リアルタイムデータの収集とパフォーマンス検証を実施予定。
-
-- **モデルの強化**  
-  ユーザーの忘却パターンを解析し、回帰モデルや時系列予測モデルを用いた個別最適な復習間隔の予測を検討中。
-
-- **UI/UX の改善**  
-  ユーザーフィードバックを元に、さらに使いやすいインターフェースへ改善を進める。
-
-## リンク
-
-- **GitHub リポジトリ**: [https://github.com/Yumiuse/my-fr.flashcard-app](https://github.com/Yumiuse/my-fr.flashcard-app)
-- **デモサイト**: [https://Yumiuse.github.io/my-fr.flashcard-app](https://Yumiuse.github.io/my-fr.flashcard-app)
-
----
-
-### 追加のヒント
-
-- **ファイルの編集方法**:  
-  GitHubのリポジトリ画面で「Add file」→「Create new file」をクリックし、ファイル名を `index.md` として上記の内容を貼り付けてコミットしてください。
-
-- **デザインやテーマの調整**:  
-  Jekyllを利用する場合は、リポジトリルートに `_config.yml` を作成し、テーマ（たとえば `minima`）やサイトタイトルなどを設定することで、デザインを整えられます。
-
-- **盗用防止について**:  
-  提示されたテンプレートはあくまで参考用です。変数名、コメント、文章の表現などを自分の言葉で微調整すれば、オリジナル性が高まります。
-
->
   </div>
 
   <script>
