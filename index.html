@@ -24,13 +24,62 @@
     <!-- さらに詳細な英語のコンテンツ -->
   </div>
 
-  <!-- 日本語版コンテンツ -->
-  <div id="ja" class="language-content">
-    <h1>フラッシュカード式フランス語学習アプリ</h1>
-    <h2>プロジェクト概要</h2>
-    <p>このアプリは、フランス語学習者向けに設計され、単語の難易度判定とインタラクティブなフラッシュカード機能を統合することで、効率的な語彙学習をサポートします...</p>
-    <!-- さらに詳細な日本語のコンテンツ -->
-  </div>
+<!-- 日本語版コンテンツ -->
+<div id="ja" class="language-content">
+  <h1>フラッシュカード式フランス語学習アプリ</h1>
+  <h2>プロジェクト概要</h2>
+  <p>
+    このアプリは、フランス語学習者向けに設計され、単語の難易度判定とインタラクティブなフラッシュカード機能を統合することで、
+    効率的な語彙学習をサポートします。ユーザーはリアルタイムの難易度判定結果と翻訳情報を取得し、
+    フィードバックに基づいたスペースドレペティション（間隔反復）で復習タイミングを最適化できます。
+  </p>
+  <h2>主な機能</h2>
+  <ul>
+    <li><strong>単語難易度判定:</strong> FastAPI と scikit-learn を使用し、入力された単語を「初級」「中級」「上級」に分類。即時にフィードバックを提供。</li>
+    <li><strong>フラッシュカードUI:</strong> Streamlit によるシンプルなインターフェースで、カード形式にて単語を表示。クリックで ChatGPT API 経由の翻訳・補足情報を表示。</li>
+    <li><strong>ユーザーフィードバックと復習管理:</strong> 「覚えた」「うる覚え」「覚えていない」といったフィードバックを記録し、CSVに保存。これを元に、次回の復習タイミングを動的に計算。</li>
+  </ul>
+  <h2>システムの仕組み</h2>
+  <ol>
+    <li><strong>単語判定:</strong>
+      <ul>
+        <li>Pandas と scikit-learn によるデータ前処理</li>
+        <li>DecisionTreeClassifier による単語の難易度分類</li>
+        <li>FastAPI エンドポイント `/predict/` によるリアルタイム判定</li>
+      </ul>
+    </li>
+    <li><strong>フラッシュカードの表示と翻訳:</strong>
+      <ul>
+        <li>Streamlit を利用したUIでカードを表示</li>
+        <li>ChatGPT API を利用して、クリック時に翻訳情報を取得</li>
+      </ul>
+    </li>
+    <li><strong>スペースドレペティションの活用:</strong>
+      <ul>
+        <li>ユーザーフィードバックに基づき、復習タイミングを計算</li>
+        <li>今後、機械学習モデルを用いて個別最適な復習スケジュールを予測する計画</li>
+      </ul>
+    </li>
+  </ol>
+  <h2>今後の展望</h2>
+  <ul>
+    <li><strong>クラウドへの展開:</strong> Heroku、AWS、GCP などでのデプロイを予定し、リアルタイムデータの収集とパフォーマンス検証を実施予定。</li>
+    <li><strong>モデルの強化:</strong> ユーザーの忘却パターンを解析し、回帰モデルや時系列予測モデルを用いた個別最適な復習間隔の予測を検討中。</li>
+    <li><strong>UI/UX の改善:</strong> ユーザーフィードバックを元に、さらに使いやすいインターフェースへ改善を進める。</li>
+  </ul>
+  <h2>リンク</h2>
+  <ul>
+    <li><strong>GitHub リポジトリ:</strong> <a href="https://github.com/Yumiuse/my-fr.flashcard-app" target="_blank">https://github.com/Yumiuse/my-fr.flashcard-app</a></li>
+    <li><strong>デモサイト:</strong> <a href="https://Yumiuse.github.io/my-fr.flashcard-app" target="_blank">https://Yumiuse.github.io/my-fr.flashcard-app</a></li>
+  </ul>
+  <h2>追加のヒント</h2>
+  <ul>
+    <li><strong>ファイルの編集方法:</strong> GitHubのリポジトリ画面で「Add file」→「Create new file」をクリックし、ファイル名を <code>index.md</code> として上記の内容を貼り付けてコミットしてください。</li>
+    <li><strong>デザインやテーマの調整:</strong> Jekyllを利用する場合は、リポジトリルートに <code>_config.yml</code> を作成し、テーマ（例: <code>minima</code>）やサイトタイトルなどを設定して、デザインを整えます。</li>
+    <li><strong>盗用防止について:</strong> このテンプレートはあくまで参考用です。変数名、コメント、表現などを自分の言葉で微調整し、オリジナリティを高めてください。</li>
+  </ul>
+</div>
+
 
   <script>
     function switchLanguage(lang) {
